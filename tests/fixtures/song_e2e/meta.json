@@ -1,0 +1,25 @@
+{
+ "lyrics": "[verse]\nHello world tonight\nWe sing along\n[chorus]\nShine bright like the stars\n",
+ "prepared_lyrics": "[start]\n[verse]\nHello world tonight\nWe sing along\n[chorus]\nShine bright like the stars",
+ "style": "Pop, Piano, Female vocals, Happy, Bright",
+ "seed": 1234,
+ "max_secs": 4.0,
+ "steps": 16,
+ "cfg_strength": 2.0,
+ "frames": 20,
+ "blocks_drawn": 2,
+ "wav": {
+  "channels": 2,
+  "rate": 48000,
+  "width": 2,
+  "frames": 192000
+ },
+ "latent_vs_fp64_max_abs_per_block": [
+  1.21488501133582e-05,
+  0.0012301153649712515
+ ],
+ "versions": {
+  "torch": "2.7.0+cu128",
+  "pedalboard": "0.9.26"
+ }
+}

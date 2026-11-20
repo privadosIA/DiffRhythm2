@@ -1,0 +1,5 @@
+DiffRhythm2
+Copyright 2026 Jesús Suero
+
+This product is a C# port of DiffRhythm2 (https://github.com/ASLP-lab/DiffRhythm2), Apache-2.0.
+It bundles Swagger UI (https://github.com/swagger-api/swagger-ui), Apache-2.0; its license and notice are in src/DiffRhythm2.Service/Docs/swagger-ui/.

@@ -1,0 +1,309 @@
+# Layout convention (a test reads this file with a small indentation-based reader, so keep it):
+#   paths:            "  /path:" at 2 spaces, "    get|post|delete:" at 4, "      responses:" at 6, "        '200':" at 8
+#   components.schemas.SongRequest.properties.<field>: "        <field>:" at 8 with "default", "minimum", "maximum", "maxLength" at 10
+openapi: 3.0.3
+info:
+  title: DiffRhythm2 song service
+  version: "1"
+  description: |
+    Makes a complete song (voice and accompaniment) from English lyrics and a style text, with DiffRhythm2.
+    It is the same HTTP interface as the Python service of the orchestrator, so a client written for that one works unchanged.
+
+    One song is made at a time; the others wait in a queue. Post a request, poll the job until its state is `done`,
+    fetch the WAV, and delete the job when you have it. The song ends by itself at the end of the lyrics:
+    `max_secs` is only a ceiling. The same request (same `seed`) gives the same song on the same machine.
+
+    When the service has a token, every call below needs `Authorization: Bearer <token>`; this page and `/openapi.yaml` do not.
+servers:
+  - url: /
+security:
+  - bearerAuth: []
+paths:
+  /health:
+    get:
+      summary: Is the service ready, and what is it doing
+      operationId: health
+      responses:
+        '200':
+          description: The state of the service. `ready` is true when every model file is present, the phonemizer library loads and the device works.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+              example:
+                ready: true
+                version: "1"
+                busy: false
+                queued: 0
+                gpu:
+                  name: NVIDIA GeForce RTX 4070
+                  free_mb: 11200
+                  total_mb: 12282
+                missing: []
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /generate:
+    post:
+      summary: Queue a song
+      operationId: generate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SongRequest'
+            example:
+              lyrics: "[verse]\nHello world tonight\nWe sing along\n[chorus]\nLa la la"
+              style: "Pop, Piano, Female vocals"
+              seed: 1234
+      responses:
+        '202':
+          description: The song was accepted. Follow it with `GET /jobs/{id}`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobId'
+              example:
+                id: 3f9a1c07be52
+        '400':
+          description: The body is not a JSON object, or a field is wrong. The error names the field. No job is created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                error: steps must be between 4 and 64
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '413':
+          description: The body is larger than 1,000,000 bytes.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                error: the request is too large
+  /jobs/{id}:
+    parameters:
+      - $ref: '#/components/parameters/JobIdPath'
+    get:
+      summary: State and progress of a job
+      operationId: getJob
+      responses:
+        '200':
+          description: The job.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+              example:
+                id: 3f9a1c07be52
+                state: running
+                progress:
+                  done: 3
+                  total: 8
+                error: ""
+                seconds: 12.4
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/UnknownJob'
+    delete:
+      summary: Forget a job (cancels it if it is queued or running) and delete its audio
+      operationId: deleteJob
+      responses:
+        '200':
+          description: The job is gone.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+              example:
+                ok: true
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/UnknownJob'
+  /jobs/{id}/audio:
+    parameters:
+      - $ref: '#/components/parameters/JobIdPath'
+    get:
+      summary: The song
+      operationId: getAudio
+      responses:
+        '200':
+          description: The song as a 48 kHz, 16-bit, stereo WAV.
+          content:
+            audio/wav:
+              schema:
+                type: string
+                format: binary
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/UnknownJob'
+        '409':
+          description: The job is not done yet.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                error: the job is running
+        '410':
+          description: The job is done but its audio is no longer there.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                error: the audio is gone
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Only needed when the service was started with a token (`DIFFRHYTHM2_TOKEN`).
+  parameters:
+    JobIdPath:
+      name: id
+      in: path
+      required: true
+      description: The id `POST /generate` returned.
+      schema:
+        type: string
+        pattern: '^[0-9a-f]+$'
+  responses:
+    Unauthorized:
+      description: The service has a token and the call carries none, or another one.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: a bearer token is required
+    UnknownJob:
+      description: There is no such job (never issued, deleted, or dropped to keep only the last 20 finished ones).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: unknown job
+  schemas:
+    SongRequest:
+      type: object
+      required:
+        - lyrics
+        - style
+      properties:
+        lyrics:
+          type: string
+          maxLength: 20000
+          description: |
+            English lyrics, one line per sung line, with optional structure tags on lines of their own:
+            `[start] [intro] [verse] [chorus] [bridge] [outro] [inst] [solo] [hook] [break] [stop] [space] [end]`.
+            Tags are written in lower case, unknown tags are dropped and `[start]` is added when missing.
+            At least one line must be text.
+        style:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+          description: Comma-separated style words, or a list of words (`Pop, Piano, Female vocals`). At most 500 characters once normalized.
+        max_secs:
+          type: number
+          minimum: 10
+          maximum: 210
+          default: 210
+          description: The longest the song may be. The song ends by itself at the end of the lyrics.
+        cfg_strength:
+          type: number
+          minimum: 0.5
+          maximum: 10
+          default: 2
+          description: Guidance strength.
+        steps:
+          type: integer
+          minimum: 4
+          maximum: 64
+          default: 16
+          description: Sampling steps per block. A fractional number is truncated.
+        seed:
+          type: integer
+          minimum: 0
+          default: 0
+          description: Seed of the random numbers. The same request and seed give the same song on the same machine.
+    JobId:
+      type: object
+      properties:
+        id:
+          type: string
+    Job:
+      type: object
+      properties:
+        id:
+          type: string
+        state:
+          type: string
+          enum:
+            - queued
+            - running
+            - done
+            - failed
+        progress:
+          type: object
+          description: Blocks of the song sampled so far and expected. The song may end before the expected total.
+          properties:
+            done:
+              type: integer
+            total:
+              type: integer
+        error:
+          type: string
+          description: Empty unless the job failed.
+        seconds:
+          type: number
+          description: Time since the job started running, or its total time once finished.
+    Health:
+      type: object
+      properties:
+        ready:
+          type: boolean
+        version:
+          type: string
+        busy:
+          type: boolean
+          description: A song is being made.
+        queued:
+          type: integer
+          description: Jobs waiting.
+        gpu:
+          nullable: true
+          type: object
+          description: null on a CPU service. A number that cannot be known is null.
+          properties:
+            name:
+              type: string
+            free_mb:
+              type: integer
+              nullable: true
+            total_mb:
+              type: integer
+              nullable: true
+        missing:
+          type: array
+          description: Model files that are not in the model directory.
+          items:
+            type: string
+    Ok:
+      type: object
+      properties:
+        ok:
+          type: boolean
+    Error:
+      type: object
+      properties:
+        error:
+          type: string

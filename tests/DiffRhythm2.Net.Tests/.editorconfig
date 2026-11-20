@@ -1,0 +1,3 @@
+# Test inputs are evaluated once, so a static field per literal array (CA1861) would only make the tests harder to read.
+[*.cs]
+dotnet_diagnostic.CA1861.severity = none

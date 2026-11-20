@@ -1,0 +1,8 @@
+{
+ "gpu": "NVIDIA GeForce RTX 4070",
+ "frames": 20,
+ "seed": 1234,
+ "precision": "model and decoder half, mulan float32 (the service)",
+ "lyrics": "[verse]\nHello world tonight\nWe sing along\n[chorus]\nShine bright like the stars\n",
+ "style": "Pop, Piano, Female vocals, Happy, Bright"
+}

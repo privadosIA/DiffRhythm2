@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>DiffRhythm2</RootNamespace>
+    <!-- Allows running on machines that only have a newer runtime (e.g. .NET 10). -->
+    <RollForward>Major</RollForward>
+    <!-- XML documentation: complete for the public API of the Pipeline namespace (a test checks it), partial elsewhere. -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Managed API; the native backend comes from Directory.Build.props -->
+    <PackageReference Include="TorchSharp" Version="$(TorchSharpVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The reference's phoneme vocabulary (g2p/g2p/vocab.json of DiffRhythm2, Apache-2.0, derived from Amphion, MIT): phoneme to id. -->
+    <EmbeddedResource Include="Text\vocab.json" LogicalName="DiffRhythm2.Text.vocab.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="DiffRhythm2.Net.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(MusicGenCoreDir)/src/MusicGen.Core/MusicGen.Core.csproj" />
+  </ItemGroup>
+
+</Project>

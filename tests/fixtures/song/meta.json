@@ -1,0 +1,11 @@
+{
+ "seed": 1234,
+ "validation_cases": 56,
+ "validation_errors": 28,
+ "float16_vs_cast_max_diff": 5.5517578125,
+ "versions": {
+  "torch": "2.7.0+cu128",
+  "numpy": "1.26.0",
+  "pedalboard": "0.9.26"
+ }
+}

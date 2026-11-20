@@ -1,0 +1,29 @@
+# systemd user unit for the DiffRhythm2 HTTP service.
+#
+#   mkdir -p ~/.config/systemd/user ~/.config/diffrhythm2
+#   cp scripts/diffrhythm2-service.service ~/.config/systemd/user/
+#   $EDITOR ~/.config/systemd/user/diffrhythm2-service.service     # set the path of the repository in ExecStart
+#   $EDITOR ~/.config/diffrhythm2/service.env                       # DIFFRHYTHM2_CKPT=..., DIFFRHYTHM2_PORT=..., DIFFRHYTHM2_DEVICE=...
+#   systemctl --user daemon-reload && systemctl --user enable --now diffrhythm2-service
+#   journalctl --user -u diffrhythm2-service -f                     # the log
+#   loginctl enable-linger "$USER"                                  # (optional) start at boot and keep it running after you log out
+#
+# Build the service once by hand before enabling it (scripts/run-service.sh --build, Ctrl+C when it listens): the first
+# build takes minutes and systemd would time out waiting for it. A token goes in a file (DIFFRHYTHM2_TOKEN=... in service.env
+# with mode 600, or pass --token-file in ExecStart), not in this unit.
+[Unit]
+Description=DiffRhythm2 song service (HTTP)
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=-%h/.config/diffrhythm2/service.env
+ExecStart=%h/Proyectos/diffrhythm2/scripts/run-service.sh
+Restart=on-failure
+RestartSec=5
+# stopping it cancels a song in progress
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+[Install]
+WantedBy=default.target

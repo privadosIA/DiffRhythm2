@@ -1,0 +1,60 @@
+{
+ "lyrics": "[verse]\nHello world tonight\nWe sing along\n[chorus]\nShine bright like the stars\n",
+ "style": "Pop, Piano, Female vocals, Happy, Bright",
+ "frames": 40,
+ "steps": 16,
+ "cfg_strength": 2.0,
+ "seed": 1234,
+ "text_len": 55,
+ "blocks_sampled": 4,
+ "latent_frames": 40,
+ "extra_runs": {
+  "run_empty": {
+   "latent_frames": 10,
+   "blocks_sampled": 1
+  },
+  "run_cfg0": {
+   "latent_frames": 10,
+   "blocks_sampled": 1
+  },
+  "run_45": {
+   "latent_frames": 50,
+   "blocks_sampled": 5
+  }
+ },
+ "reference_nondeterminism": {
+  "latent_max_abs": 0.0,
+  "states_max_abs": 0.0
+ },
+ "case_a": {
+  "t": 0.3,
+  "positions": "0..9"
+ },
+ "case_b": {
+  "t": 0.5,
+  "positions": "10..19",
+  "clean_t": 1.0
+ },
+ "versions": {
+  "torch": "2.7.0+cu128",
+  "transformers": "4.47.1",
+  "torchdiffeq": "0.2.5"
+ },
+ "config": {
+  "dim": 2048,
+  "depth": 16,
+  "heads": 16,
+  "ff_mult": 4,
+  "text_dim": 512,
+  "conv_layers": 0,
+  "mel_dim": 64,
+  "text_num_embeds": 1000,
+  "block_size": 10,
+  "use_flex_attn": false,
+  "repa_depth": 6,
+  "repa_dims": [
+   1024,
+   768
+  ]
+ }
+}

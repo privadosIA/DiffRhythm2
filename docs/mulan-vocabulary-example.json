@@ -1,0 +1,140 @@
+{
+ "genre": {
+  "template": "This is a {} song.",
+  "tags": [
+   "pop",
+   "rock",
+   "jazz",
+   "electronic",
+   "classical",
+   "hip-hop",
+   "r&b",
+   "country",
+   "reggae",
+   "blues",
+   "folk",
+   "metal",
+   "punk",
+   "disco",
+   "funk",
+   "soul",
+   "indie",
+   "edm",
+   "house",
+   "techno",
+   "ambient",
+   "lo-fi",
+   "latin",
+   "reggaeton",
+   "bossa nova"
+  ]
+ },
+ "mood": {
+  "template": "{} music",
+  "tags": [
+   "happy",
+   "sad",
+   "energetic",
+   "calm",
+   "romantic",
+   "melancholic",
+   "uplifting",
+   "dark",
+   "dreamy",
+   "aggressive",
+   "peaceful",
+   "nostalgic",
+   "hopeful",
+   "mysterious",
+   "playful",
+   "epic",
+   "chill",
+   "intense"
+  ]
+ },
+ "instrument": {
+  "template": "A song featuring {}.",
+  "tags": [
+   "piano",
+   "guitar",
+   "acoustic guitar",
+   "electric guitar",
+   "bass",
+   "drums",
+   "violin",
+   "cello",
+   "saxophone",
+   "trumpet",
+   "flute",
+   "synth",
+   "strings",
+   "orchestra",
+   "choir",
+   "808",
+   "harp",
+   "organ",
+   "ukulele",
+   "harmonica"
+  ]
+ },
+ "tempo": {
+  "template": "{} tempo music",
+  "tags": [
+   "slow",
+   "moderate",
+   "fast",
+   "very fast",
+   "ballad",
+   "uptempo",
+   "mid-tempo",
+   "groovy"
+  ]
+ },
+ "vocal": {
+  "template": "music with {}",
+  "tags": [
+   "male vocal",
+   "female vocal",
+   "duet",
+   "rap",
+   "whisper",
+   "powerful vocals",
+   "falsetto",
+   "soprano",
+   "baritone",
+   "tenor",
+   "alto",
+   "harmonies",
+   "a cappella"
+  ]
+ },
+ "era": {
+  "template": "A song in {} style.",
+  "tags": [
+   "80s",
+   "90s",
+   "2000s",
+   "modern",
+   "retro",
+   "vintage",
+   "70s",
+   "60s",
+   "futuristic"
+  ]
+ },
+ "production": {
+  "template": "A {} recording.",
+  "tags": [
+   "cinematic",
+   "hi-fi",
+   "acoustic",
+   "live",
+   "studio",
+   "raw",
+   "polished",
+   "minimalist",
+   "layered",
+   "atmospheric"
+  ]
+ }
+}

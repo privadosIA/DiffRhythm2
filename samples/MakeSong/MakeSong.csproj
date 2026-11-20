@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RollForward>Major</RollForward>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- From another repository, reference the library by path (and give it the core: -p:MusicGenCoreDir=...). -->
+    <ProjectReference Include="..\..\src\DiffRhythm2.Net\DiffRhythm2.Net.csproj" />
+  </ItemGroup>
+
+</Project>

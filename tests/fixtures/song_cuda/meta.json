@@ -1,0 +1,22 @@
+{
+ "gpus": [
+  "NVIDIA GeForce RTX 4070",
+  "NVIDIA GeForce RTX 5060 Ti"
+ ],
+ "capabilities": [
+  [
+   8,
+   9
+  ],
+  [
+   12,
+   0
+  ]
+ ],
+ "torch": "2.7.0+cu128",
+ "cuda": "12.8",
+ "equal_between_cards": true,
+ "seed": 1234,
+ "blocks": 4,
+ "note": "torch.randn(1,10,64,device=cuda,dtype=...) after manual_seed(1234)+cuda.manual_seed_all(1234); identical on both cards (max abs diff 0.0); NOT equal to the CPU stream"
+}

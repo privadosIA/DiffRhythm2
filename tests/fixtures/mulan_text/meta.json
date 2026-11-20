@@ -1,0 +1,38 @@
+{
+"prompts": [
+"Pop, Piano, Female vocals, Happy, Bright",
+"Rock, Electric guitar, Male vocals, Energetic",
+"Lo-fi, Chill",
+"m\u00fasica alegre con guitarra y voz femenina",
+"\u6d41\u884c\u97f3\u4e50, \u94a2\u7434, female vocals",
+"Electronic, Synthwave, 80s, Retro, Female vocals, Dreamy, Electronic, Synthwave, 80s, Retro, Female vocals, Dreamy, Electronic, Synthwave, 80s, Retro, Female vocals, Dreamy, Electronic, Synthwave, 80s, Retro, Female vocals, Dreamy, Electronic, Synthwave, 80s, Retro, Female vocals, Dreamy, Electronic, Synthwave, 80s, Retro, Female vocals, Dreamy, Warm pads",
+""
+],
+"prompt_lengths": [
+13,
+13,
+7,
+9,
+12,
+120,
+2
+],
+"texts": 64,
+"changed_code_points": 4837,
+"sequences": 4062,
+"chained_by_hand_equals_mulan": [
+true,
+true,
+true,
+true,
+true,
+true,
+true
+],
+"tokenizer_json_sha256": "a898ea75433890f6610f4e470b8ebeb0c21dce5c8dd61f892eb09eb5919d2e2c",
+"versions": {
+"torch": "2.7.0+cu128",
+"transformers": "4.47.1",
+"tokenizers": "0.21.4"
+}
+}

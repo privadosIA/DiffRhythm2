@@ -1,0 +1,10 @@
+{
+ "dtype": "torch.float32",
+ "samples": 384000,
+ "max_abs_vs_fp32_reference": 0.0027926862239837646,
+ "mean_abs_vs_fp32_reference": 0.0002899104729294777,
+ "nonfinite": 0,
+ "versions": {
+  "torch": "2.7.0+cu128"
+ }
+}

@@ -1,0 +1,110 @@
+## English lines for the g2p fixtures (tools/dump_g2p_reference.py). One line per entry, used verbatim. Lines starting with "##" are comments.
+## Song-like lines
+Hello world tonight
+We sing along
+Shine bright like the stars
+Dancing in the moonlight, feeling alright
+Hold me close and never let me go
+Every night I dream of you
+Oh yeah...
+Ooh-la-la
+la la la la
+na na na, hey hey hey
+Don't stop believin'
+Cause I'm gonna - never - stop
+O' sole mio; ah!
+Rock'n'roll
+Wait, what?!
+Yes; no: maybe…
+Hello,world
+the end.
+a . b
+what ... ever
+"quoted" text
+(parenthetical remark)
+semi—dash
+well - ok
+UPPER CASE LINE
+x
+I
+A B C
+OK
+TV and DJ
+NASA
+U.S.A.
+twenty-one pilots
+x-ray vision
+snake_case word
+a very long line that keeps going on and on about the road, the rain, the river and the way home, until the morning light comes up over the hills and we start again
+## Contractions and apostrophes
+I can't, I won't, y'all know it's true
+'cause 'em ain't
+five o'clock shadow
+The dog's bone and the dogs' bones
+It’s a curly apostrophe
+‘single’ curly quotes
+## Abbreviations
+I'm 25 years old, Mr. Smith!
+Mrs. Jones and Dr. Dre & the Co.
+MR. SMITH and mr smith
+Jr. and Sr.
+St. Louis, Main St.
+Gen. Lee, Maj. Tom, Lt. Dan, Sgt. Pepper, Capt. Jack
+Rev. King, Hon. Judge, Col. Sanders
+Drs. Who and What
+Esq. and Ltd.
+Fort Ft. Knox
+etc. btw
+stop the doctor
+## Numbers
+Zero is 0
+Seven is 7
+Take 10 steps
+13 and 21 and 99
+Counting 100 101 110 999
+Between 1000 and 1001
+In 1999 we partied
+The years 2000 2001 2005 2010
+2024 was a year
+The years 1900 1100 2100 2999 3000
+10000 and 100000
+1,000 and 1,234,567
+Big number 1234567890
+3.14 and 0.5
+Prices $1 $0.99 $1,000.50 $5.50
+£20 and £1,500
+100% sure, 50%, 12.5%
+Fractions 1/2 1/4 3/4 2/3 7/8 10/3
+1st 2nd 3rd 4th 11th 12th 21st 22nd 100th 112th
+It's 3:45 AM
+Call me at 555 1234
+Agent 007
+Room 101
+## Punctuation and symbols
+Hello，world。Bye！
+Wait...
+Wait⋯
+Wait···
+Are you sure？ Yes！
+a,b;c:d
+,leading comma
+trailing comma,
+!!!hey???
+hey!!!
+one, two, three, four
+price 3,5 euros
+version 1.2.3
+## Unicode
+Beyoncé
+naïve résumé
+the café, naïve résumé
+café with a decomposed accent
+¿Qué pasa?
+Ça va bien
+Zoë über Ñandú
+½ cup of 2² things
+I ♥ you
+emoji 😀 line
+tab	separated
+multiple    spaces   here
+  padded line  

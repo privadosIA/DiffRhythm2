@@ -1,0 +1,67 @@
+{
+ "threshold_mse": 0.05,
+ "kinds": {
+  "N": 0.0,
+  "E": 1.0,
+  "IN": 1.2213594362117866,
+  "OUT": 1.2258317958127243
+ },
+ "cases": [
+  {
+   "index": 0,
+   "name": "two_ending_frames",
+   "blocks_given": 1,
+   "blocks_sampled": 1,
+   "frames": 7
+  },
+  {
+   "index": 1,
+   "name": "all_ones",
+   "blocks_given": 1,
+   "blocks_sampled": 1,
+   "frames": 0
+  },
+  {
+   "index": 2,
+   "name": "just_above_threshold",
+   "blocks_given": 1,
+   "blocks_sampled": 1,
+   "frames": 10
+  },
+  {
+   "index": 3,
+   "name": "just_below_threshold",
+   "blocks_given": 1,
+   "blocks_sampled": 1,
+   "frames": 7
+  },
+  {
+   "index": 4,
+   "name": "single_last_frame",
+   "blocks_given": 1,
+   "blocks_sampled": 1,
+   "frames": 8
+  },
+  {
+   "index": 5,
+   "name": "second_block_ends",
+   "blocks_given": 2,
+   "blocks_sampled": 2,
+   "frames": 14
+  },
+  {
+   "index": 6,
+   "name": "ones_only_in_the_middle",
+   "blocks_given": 1,
+   "blocks_sampled": 1,
+   "frames": 10
+  },
+  {
+   "index": 7,
+   "name": "no_ending",
+   "blocks_given": 2,
+   "blocks_sampled": 2,
+   "frames": 20
+  }
+ ]
+}

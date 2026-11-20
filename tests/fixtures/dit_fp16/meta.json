@@ -1,0 +1,8 @@
+{
+ "precision": "fp16 (model.half(), half style)",
+ "inputs": "tests/fixtures/dit/inputs.safetensors",
+ "device": "cpu",
+ "frames": 40,
+ "vs_fp32_max_abs": 0.5943965911865234,
+ "vs_fp32_mean_abs": 0.03922600671648979
+}

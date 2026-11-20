@@ -1,0 +1,22 @@
+- name: Overview
+  href: index.md
+- name: Guides
+  items:
+    - name: Song pipeline and CLI
+      href: song-pipeline.md
+    - name: Weights tools
+      href: weights-tools.md
+    - name: HTTP service
+      href: http-service.md
+    - name: English lyrics to tokens
+      href: english-g2p.md
+    - name: Style text embedding
+      href: mulan-text.md
+    - name: Recognizing and comparing songs
+      href: mulan-audio.md
+    - name: Diffusion transformer and sampler
+      href: dit-sampler.md
+    - name: Latent to audio
+      href: bigvgan-decoder.md
+- name: API reference
+  href: api/

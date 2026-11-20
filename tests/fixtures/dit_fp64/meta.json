@@ -1,0 +1,32 @@
+{
+ "precision": "float64",
+ "inputs": "tests/fixtures/dit/inputs.safetensors",
+ "frames": 45,
+ "fp32_reference_vs_this": [
+  {
+   "block": 0,
+   "fp32_vs_fp64_max_abs": 1.21488501133582e-05,
+   "mean_abs": 2.3849501621704606e-06
+  },
+  {
+   "block": 1,
+   "fp32_vs_fp64_max_abs": 0.0012301153649712515,
+   "mean_abs": 0.0001618540278504991
+  },
+  {
+   "block": 2,
+   "fp32_vs_fp64_max_abs": 0.0024819756240479496,
+   "mean_abs": 0.0003708343569473866
+  },
+  {
+   "block": 3,
+   "fp32_vs_fp64_max_abs": 0.1921863872818811,
+   "mean_abs": 0.011312724837044522
+  },
+  {
+   "block": 4,
+   "fp32_vs_fp64_max_abs": 0.03419292016399578,
+   "mean_abs": 0.007201824180781452
+  }
+ ]
+}

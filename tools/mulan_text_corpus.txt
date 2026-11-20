@@ -1,0 +1,29 @@
+## Style prompts and other texts for the tokenizer fixtures (tools/dump_mulan_text_reference.py). One text per line, used verbatim.
+## Lines starting with "##" are comments; special characters are added by the dumper itself.
+Pop, Piano, Female vocals, Happy, Bright
+Rock, Electric guitar, Male vocals, Energetic
+Lo-fi, Chill
+Jazz, Saxophone, Smooth, Slow tempo, Late night
+Classical, Orchestra, Cinematic, Epic, Strings and brass
+Hip hop, 808 bass, Rap, Dark, 90 BPM
+Electronic, Synthwave, 80s, Retro, Female vocals, Dreamy
+Folk, Acoustic guitar, Warm, Storytelling, Male vocals
+UPPER CASE STYLE, MiXeD cAsE
+  extra   spaces   and trailing 
+tabs	and	more
+música alegre con guitarra y voz femenina
+canción tranquila, piano suave, voz masculina
+流行音乐, 钢琴, 女声
+ポップ, ピアノ, 明るい
+팝, 피아노, 밝은
+Музыка с гитарой
+موسيقى هادئة
+संगीत शांत
+café naïve résumé
+emoji 😀🎵 test
+ﬁne ＦＵＬＬ width ①②③ ½
+Dr. Mr. etc. 3.5 mm 100% $5
+a
+A.B.C
+...
+!!!???

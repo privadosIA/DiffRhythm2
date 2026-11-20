@@ -1,0 +1,30 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../src",
+          "files": [ "DiffRhythm2.Net/DiffRhythm2.Net.csproj" ]
+        }
+      ],
+      "dest": "api",
+      "properties": { "TorchBackend": "cpu" }
+    }
+  ],
+  "build": {
+    "content": [
+      { "files": [ "api/**.yml", "api/index.md" ] },
+      { "files": [ "*.md", "toc.yml" ] }
+    ],
+    "resource": [
+      { "files": [ "mulan-vocabulary-example.json" ] }
+    ],
+    "output": "_site",
+    "globalMetadata": {
+      "_appTitle": "DiffRhythm2.Net",
+      "_appFooter": "DiffRhythm2.Net API reference, generated from the XML documentation comments.",
+      "_enableSearch": true
+    },
+    "template": [ "default", "modern" ]
+  }
+}

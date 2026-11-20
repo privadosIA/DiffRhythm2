@@ -1,0 +1,49 @@
+{
+ "seed": 4321,
+ "chunk_frames": 20,
+ "samples_per_frame": 9600,
+ "keep_channels": 2,
+ "latent_frames": 40,
+ "reference_nondeterminism": {
+  "decode_40_max_abs": 0.0
+ },
+ "loud_unclipped_peak": 6.0165486335754395,
+ "wave_peak": {
+  "real": 0.4565672278404236,
+  "random": 0.46912139654159546,
+  "decode_40": 0.4565672278404236
+ },
+ "stages": [
+  "conv_pre",
+  "up0",
+  "stage0",
+  "up1",
+  "stage1",
+  "up2",
+  "stage2",
+  "up3",
+  "stage3",
+  "up4",
+  "stage4",
+  "up5",
+  "stage5",
+  "act_post",
+  "conv_post"
+ ],
+ "raw_stages": [
+  "conv_post",
+  "conv_pre",
+  "stage0",
+  "stage1",
+  "stage2",
+  "stage3",
+  "stage4",
+  "stage5",
+  "up0",
+  "up1",
+  "up2"
+ ],
+ "versions": {
+  "torch": "2.7.0+cu128"
+ }
+}
