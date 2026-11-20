@@ -1,5 +1,8 @@
 DiffRhythm2
 Copyright 2026 Jesús Suero
 
-This product is a C# port of DiffRhythm2 (https://github.com/ASLP-lab/DiffRhythm2), Apache-2.0.
+This product is a C# port of DiffRhythm2 (https://github.com/ASLP-lab/DiffRhythm2), Apache-2.0,
+Copyright 2025 ASLP Lab and Xiaomi Inc. All Rights Reserved.
 It bundles Swagger UI (https://github.com/swagger-api/swagger-ui), Apache-2.0; its license and notice are in src/DiffRhythm2.Service/Docs/swagger-ui/.
+Its phoneme vocabulary (src/DiffRhythm2.Net/Text/vocab.json) is derived from Amphion (https://github.com/open-mmlab/Amphion), MIT,
+Copyright (c) 2023 Amphion; the license text is in src/DiffRhythm2.Net/Text/vocab.LICENSE.txt.
