@@ -1,5 +1,7 @@
 # DiffRhythm2.Net
 
+> Part of [mediaOrquestator](https://orquestator.xuxo.net/): a song made with this port, and examples of every other engine, are on its public page (es/en).
+
 C# port (.NET 8 + TorchSharp) of [DiffRhythm2](https://github.com/ASLP-lab/DiffRhythm2), the diffusion model that writes a whole song (voice and accompaniment) from English lyrics and a style text. Everything runs in .NET: the lyrics front end, the style encoder, the diffusion transformer with its block-wise sampler, and the audio decoder. Python is only used as a development-time oracle (the reference outputs the tests compare against are committed).
 
 ```
