@@ -296,7 +296,7 @@ def main():
     dump("meta.json", meta)
     R.write_manifest(
         args.out, "English g2p golden run (reference image, CPU)",
-        "Dumped by `tools/dump_g2p_reference.py` from the reference image `mediaorquestator/diffrhythm2:1` (upstream 7804f82) over `tools/g2p_corpus.txt`. "
+        "Dumped by `tools/dump_g2p_reference.py` from the reference image `veritmo/diffrhythm2:1` (upstream 7804f82) over `tools/g2p_corpus.txt`. "
         "`transcripts.json` is a replay of the real espeak-ng calls (version in `meta.json`); the number words come from the `inflect` copy vendored in setuptools.",
         ["lines.json", "transcripts.json", "numbers.json", "lyrics.json", "vocab.json", "meta.json"])
     print(json.dumps({k: v for k, v in meta.items() if k != "golden_lyrics_tokens"}, indent=1))

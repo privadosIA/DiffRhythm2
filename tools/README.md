@@ -1,14 +1,14 @@
 # tools/
 
-Python dumpers for the golden-run fixtures. They run **inside the reference image** (`mediaorquestator/diffrhythm2:1`, upstream commit 7804f82) and are the only contact with Python in this project. Fixtures are written under `tests/fixtures/<name>/` with a `MANIFEST.md` of sha256 hashes that the tests verify (`FixtureDirectory` from `musicgen-core`).
+Python dumpers for the golden-run fixtures. They run **inside the reference image** (`veritmo/diffrhythm2:1`, upstream commit 7804f82) and are the only contact with Python in this project. Fixtures are written under `tests/fixtures/<name>/` with a `MANIFEST.md` of sha256 hashes that the tests verify (`FixtureDirectory` from `musicgen-core`).
 
 ## Running a dumper
 
 ```bash
-CKPT=~/Proyectos/mediaOrquestator/models/music/diffrhythm2     # config.json, model.safetensors, MuQ-MuLan cache, ...
+CKPT=~/Proyectos/veritmo/models/music/diffrhythm2     # config.json, model.safetensors, MuQ-MuLan cache, ...
 docker run --rm --user $(id -u):$(id -g) -e HOME=/tmp \
   -v "$PWD":/work -v "$CKPT":/ckpt:ro \
-  --entrypoint python3 mediaorquestator/diffrhythm2:1 -I /work/tools/<script>.py [--out DIR]
+  --entrypoint python3 veritmo/diffrhythm2:1 -I /work/tools/<script>.py [--out DIR]
 ```
 
 `-I` keeps the interpreter from importing anything from the working directory; each script adds `tools/` (our own code) to `sys.path` explicitly. Run from the repository root.
@@ -51,7 +51,7 @@ docker run --rm --user $(id -u):$(id -g) -e HOME=/tmp \
 ```bash
 docker run --rm --user $(id -u):$(id -g) -e HOME=/tmp \
   -v "$PWD":/work -v "$CKPT":/ckpt \
-  --entrypoint python3 mediaorquestator/diffrhythm2:1 -I /work/tools/convert_decoder.py     # writes /ckpt/decoder.safetensors
+  --entrypoint python3 veritmo/diffrhythm2:1 -I /work/tools/convert_decoder.py     # writes /ckpt/decoder.safetensors
 ```
 
 The values are copied bit for bit and nothing is folded. The only change is a pure rename of each weight-norm pair, `X.weight_g` / `X.weight_v` to `X.parametrizations.weight.original0` / `original1` (the spelling the core's `StrictLoader` folds); 783 tensors, 116 pairs, 523 MB. The output is deterministic: converting into an empty directory twice gives the same sha256 (`6c39bc55be24...`). `decoder.json` is read as it is.

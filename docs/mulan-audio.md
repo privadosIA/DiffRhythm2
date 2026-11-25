@@ -1,6 +1,6 @@
 # MuQ-MuLan audio tower (recognizing and comparing songs)
 
-C# port of the audio side of MuQ-MuLan: it turns a piece of music into the same 512-dimensional space as the style text of [mulan-text.md](mulan-text.md), so a song can be compared with text ("This is a jazz song.") or with another song. Nothing runs in Python, at run time or at conversion time; the Python scripts in `tools/` are only the oracle the fixtures come from. Python reference: `mediaorquestator/diffrhythm2:1` (`muq` 0.1.0, transformers 4.47.1, torchaudio 2.7.0).
+C# port of the audio side of MuQ-MuLan: it turns a piece of music into the same 512-dimensional space as the style text of [mulan-text.md](mulan-text.md), so a song can be compared with text ("This is a jazz song.") or with another song. Nothing runs in Python, at run time or at conversion time; the Python scripts in `tools/` are only the oracle the fixtures come from. Python reference: `veritmo/diffrhythm2:1` (`muq` 0.1.0, transformers 4.47.1, torchaudio 2.7.0).
 
 > **License.** The MuQ-MuLan weights are CC-BY-NC-4.0: recognition with them is non-commercial too. (LAION-CLAP is Apache-2.0.)
 
@@ -145,7 +145,7 @@ diffrhythm2 classify --model ~/models/diffrhythm2 --audio song.wav --vocab docs/
 
 `embed` prints one JSON object (or writes it with `--out`, atomically): `{"kind":"audio","dim":512,"clips":3,"seconds":25,"length":0.955422,"embedding":[...]}`; for a text, `kind` is `text` and there are no `clips`, `seconds` or `length` (a text embedding always has length 1). Progress (`clip 2/3`) goes to the error stream.
 
-`classify` ranks a **vocabulary** of tags for the audio. The vocabulary is a JSON object of categories; each category is a list of tags, or an object with a `template` (a text with `{}`, replaced by the tag) and the `tags`. A list uses the tag itself as the text. [`docs/mulan-vocabulary-example.json`](mulan-vocabulary-example.json) is the tag list of mediaOrquestator with the prompt templates `muq_genres.py` uses:
+`classify` ranks a **vocabulary** of tags for the audio. The vocabulary is a JSON object of categories; each category is a list of tags, or an object with a `template` (a text with `{}`, replaced by the tag) and the `tags`. A list uses the tag itself as the text. [`docs/mulan-vocabulary-example.json`](mulan-vocabulary-example.json) is the tag list of Veritmo with the prompt templates `muq_genres.py` uses:
 
 ```json
 { "genre": { "template": "This is a {} song.", "tags": ["pop", "rock", "jazz"] },

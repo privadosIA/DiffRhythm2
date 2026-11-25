@@ -6,7 +6,7 @@
 #   DIFFRHYTHM2_ESPEAK_LIB=<dir>/libespeak-ng.so.1.1.51 DIFFRHYTHM2_ESPEAK_DATA=<dir>/espeak-ng-data LD_LIBRARY_PATH=<dir> dotnet test -c Release
 set -euo pipefail
 out="${1:?usage: $0 <output dir>}"
-image="${DIFFRHYTHM2_IMAGE:-mediaorquestator/diffrhythm2:1}"
+image="${DIFFRHYTHM2_IMAGE:-veritmo/diffrhythm2:1}"
 mkdir -p "$out"
 cid=$(docker create "$image")
 trap 'docker rm "$cid" >/dev/null' EXIT

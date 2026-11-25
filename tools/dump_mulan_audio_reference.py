@@ -190,7 +190,7 @@ def write(out, tensors, meta):
 def manifest(out):
     R.write_manifest(
         out, "MuQ-MuLan audio tower golden run (fp32, CPU)",
-        "Dumped by `tools/dump_mulan_audio_reference.py` from the reference image `mediaorquestator/diffrhythm2:1` through the real `MuQMuLan`. "
+        "Dumped by `tools/dump_mulan_audio_reference.py` from the reference image `veritmo/diffrhythm2:1` through the real `MuQMuLan`. "
         "`signals` are deterministic test signals, `frontend` the mel filter bank and spectrograms, `stages` the stage outputs of the first clip of `s25`, "
         "`embeddings` the clip, signal and text embeddings and their similarities.",
         FILES)

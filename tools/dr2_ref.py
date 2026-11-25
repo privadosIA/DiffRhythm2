@@ -1,5 +1,5 @@
 """
-Shared helpers for the golden-run dumpers. It runs INSIDE the reference image (mediaorquestator/diffrhythm2:1, upstream commit
+Shared helpers for the golden-run dumpers. It runs INSIDE the reference image (veritmo/diffrhythm2:1, upstream commit
 7804f82), never on the host; see tools/README.md for the docker command.
 
 What is patched, in memory only (the code in /opt/dr2 is not touched), and why:

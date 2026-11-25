@@ -1,6 +1,6 @@
 # MuQ-MuLan text tower (style embedding)
 
-C# port of the text side of MuQ-MuLan, which turns a free-text style prompt ("Pop, Piano, Female vocals, Happy, Bright") into the 512-dimensional style embedding the DiT is conditioned on (`src/DiffRhythm2.Net/StyleText`). Python reference: `mediaorquestator/diffrhythm2:1` (`muq` package, transformers 4.47.1, tokenizers 0.21.4). The audio tower is not ported.
+C# port of the text side of MuQ-MuLan, which turns a free-text style prompt ("Pop, Piano, Female vocals, Happy, Bright") into the 512-dimensional style embedding the DiT is conditioned on (`src/DiffRhythm2.Net/StyleText`). Python reference: `veritmo/diffrhythm2:1` (`muq` package, transformers 4.47.1, tokenizers 0.21.4). The audio tower is not ported.
 
 ## Usage
 

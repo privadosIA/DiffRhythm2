@@ -125,7 +125,7 @@ def main():
         json.dump(meta, f, indent=1)
     R.write_manifest(
         args.out, "BigVGAN golden run (fp32, CPU)",
-        "Dumped by `tools/dump_bigvgan_reference.py` from the reference image `mediaorquestator/diffrhythm2:1` (upstream 7804f82). Stage signals keep "
+        "Dumped by `tools/dump_bigvgan_reference.py` from the reference image `veritmo/diffrhythm2:1` (upstream 7804f82). Stage signals keep "
         f"only the first {B.KEEP_CHANNELS} channels (`conv_pre` keeps all) and only for the stages in `RAW_STAGES` of `tools/dr2_bigvgan.py`; `*_rms` is the RMS over time of every channel, for every stage. See `meta.json` for the reference's own run-to-run drift.",
         ["chunk_real.safetensors", "chunk_random.safetensors", "chunk_loud.safetensors", "decode_40.safetensors", "activation.safetensors",
          "weights.safetensors", "meta.json"])

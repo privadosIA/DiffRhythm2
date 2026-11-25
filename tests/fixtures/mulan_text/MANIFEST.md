@@ -1,6 +1,6 @@
 # MuQ-MuLan text tower golden run (fp32, CPU)
 
-Dumped by `tools/dump_mulan_text_reference.py` from the reference image `mediaorquestator/diffrhythm2:1` through the real `MuQMuLan`. `normalization.json` maps every changed code point of planes 0 to 2 alone, plus multi-character strings; `tower.safetensors` holds the stage outputs.
+Dumped by `tools/dump_mulan_text_reference.py` from the reference image `veritmo/diffrhythm2:1` through the real `MuQMuLan`. `normalization.json` maps every changed code point of planes 0 to 2 alone, plus multi-character strings; `tower.safetensors` holds the stage outputs.
 
 | file | sha256 | bytes |
 |---|---|---|

@@ -1,6 +1,6 @@
 # The HTTP service
 
-`diffrhythm2-service` (project `src/DiffRhythm2.Service`) makes songs over HTTP. It is the same interface as the Python service of the orchestrator (mediaOrquestator), so that application uses it as an **external engine** (a host and a port) with no change on its side, and any other program can use it with `curl` or an HTTP client. Open `http://HOST:PORT/docs` for the interactive page (Swagger UI, bundled, works offline); the machine-readable description is `http://HOST:PORT/openapi.yaml`.
+`diffrhythm2-service` (project `src/DiffRhythm2.Service`) makes songs over HTTP. It is the same interface as the Python service of the orchestrator (Veritmo), so that application uses it as an **external engine** (a host and a port) with no change on its side, and any other program can use it with `curl` or an HTTP client. Open `http://HOST:PORT/docs` for the interactive page (Swagger UI, bundled, works offline); the machine-readable description is `http://HOST:PORT/openapi.yaml`.
 
 It speaks plain HTTP and is meant for localhost or a trusted network. Put a reverse proxy in front of it if it must be reached from elsewhere, and set a token.
 

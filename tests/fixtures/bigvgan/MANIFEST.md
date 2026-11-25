@@ -1,6 +1,6 @@
 # BigVGAN golden run (fp32, CPU)
 
-Dumped by `tools/dump_bigvgan_reference.py` from the reference image `mediaorquestator/diffrhythm2:1` (upstream 7804f82). Stage signals keep only the first 2 channels (`conv_pre` keeps all) and only for the stages in `RAW_STAGES` of `tools/dr2_bigvgan.py`; `*_rms` is the RMS over time of every channel, for every stage. See `meta.json` for the reference's own run-to-run drift.
+Dumped by `tools/dump_bigvgan_reference.py` from the reference image `veritmo/diffrhythm2:1` (upstream 7804f82). Stage signals keep only the first 2 channels (`conv_pre` keeps all) and only for the stages in `RAW_STAGES` of `tools/dr2_bigvgan.py`; `*_rms` is the RMS over time of every channel, for every stage. See `meta.json` for the reference's own run-to-run drift.
 
 | file | sha256 | bytes |
 |---|---|---|

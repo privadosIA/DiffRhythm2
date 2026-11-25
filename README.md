@@ -1,6 +1,6 @@
 # DiffRhythm2.Net
 
-> Part of [mediaOrquestator](https://orquestator.xuxo.net/): a song made with this port, and examples of every other engine, are on its public page (es/en).
+> Part of [Veritmo](https://veritmo.xuxo.net/): a song made with this port, and examples of every other engine, are on its public page (es/en).
 
 C# port (.NET 8 + TorchSharp) of [DiffRhythm2](https://github.com/ASLP-lab/DiffRhythm2), the diffusion model that writes a whole song (voice and accompaniment) from English lyrics and a style text. Everything runs in .NET: the lyrics front end, the style encoder, the diffusion transformer with its block-wise sampler, and the audio decoder. Python is only used as a development-time oracle (the reference outputs the tests compare against are committed).
 
@@ -68,7 +68,7 @@ DIFFRHYTHM2_CKPT=~/models/diffrhythm2 dotnet src/DiffRhythm2.Service/bin/Release
 curl -s -X POST localhost:8788/generate -H 'Content-Type: application/json' -d '{"lyrics":"[verse]\nHello world\nWe sing along","style":"Pop, Piano","seed":1}'
 ```
 
-It makes one song at a time through a queue and offers `GET /health`, `POST /generate`, `GET /jobs/{id}`, `GET /jobs/{id}/audio` and `DELETE /jobs/{id}`, the same calls as the Python engine of mediaOrquestator (which can use it as an external engine by its host and port, with no change). Variables, every call with `curl`, errors, tokens and a polling example are in [docs/http-service.md](docs/http-service.md); the API description is served at `/openapi.yaml`.
+It makes one song at a time through a queue and offers `GET /health`, `POST /generate`, `GET /jobs/{id}`, `GET /jobs/{id}/audio` and `DELETE /jobs/{id}`, the same calls as the Python engine of Veritmo (which can use it as an external engine by its host and port, with no change). Variables, every call with `curl`, errors, tokens and a polling example are in [docs/http-service.md](docs/http-service.md); the API description is served at `/openapi.yaml`.
 
 `scripts/run-service.sh` starts it (and builds it first if needed), and `scripts/diffrhythm2-service.service` is a systemd user unit; both are explained in the guide.
 
@@ -160,23 +160,23 @@ The HTTP service (`src/DiffRhythm2.Service`) bundles **Swagger UI 5.32.0** (`swa
 
 Depends on `musicgen-core` (shared code) and follows the original DiffRhythm2. Used by `veritmo`, which starts it as a service.
 
-| Repository | What it is |
-|---|---|
-| [`veritmo`](https://github.com/privadosIA/veritmo) | The server: the HTTP API and its contract, the pipelines (video, images, music), the run history and the music services it starts. |
-| [`dashboards-labs`](https://github.com/privadosIA/dashboards-labs) | The dashboards (Angular) that talk to the server through its OpenAPI contract. |
-| [`heartmula`](https://github.com/privadosIA/heartmula) | C# (.NET 8 + TorchSharp) port of [heartlib](https://github.com/HeartMuLa/heartlib): the HeartMuLa song generator, run by the server as a service. |
-| [`DiffRhythm2`](https://github.com/privadosIA/DiffRhythm2) (this repository) | C# port of [DiffRhythm2](https://github.com/ASLP-lab/DiffRhythm2): a diffusion model that writes a whole song. |
-| [`lion-clap`](https://github.com/privadosIA/lion-clap) | C# port of [LAION-CLAP](https://github.com/LAION-AI/CLAP): audio and text embeddings, used to recognise songs. |
-| [`musicgen-core`](https://github.com/privadosIA/musicgen-core) | The TorchSharp building blocks shared by the five ports. |
-| [`triposr`](https://github.com/privadosIA/triposr) | C# port of [TripoSR](https://github.com/VAST-AI-Research/TripoSR): one picture in, one 3D model (`.glb`) out; makes the models of the *models3d* category (MIT original). |
-| [`stable-fast-3d`](https://github.com/privadosIA/stable-fast-3d) | C# port of [Stable Fast 3D](https://github.com/Stability-AI/stable-fast-3d): one picture in, one textured 3D model (`.glb`) out. **Under the Stability AI Community License, not Apache-2.0** (free for research and non-commercial use, and for commercial use under US$1M of yearly revenue). |
-| [`forms-lib`](https://github.com/privadosIA/forms-lib) | `@core/dynamic-forms`, the Angular library that draws forms and tables from JSON. |
+| Repository | What it is | Licence |
+|---|---|---|
+| [`veritmo`](https://github.com/privadosIA/veritmo) | The server: the HTTP API and its contract, the pipelines (video, images, music, 3D), the run history and the services it starts. | Apache-2.0 |
+| [`dashboards-labs`](https://github.com/privadosIA/dashboards-labs) | The dashboards (Angular) that talk to the server through its OpenAPI contract. | Apache-2.0 |
+| [`forms-lib`](https://github.com/privadosIA/forms-lib) | `@core/dynamic-forms`, the Angular library that draws forms and tables from JSON. | Apache-2.0 |
+| [`heartmula`](https://github.com/privadosIA/heartmula) | C# (.NET 8 + TorchSharp) port of [heartlib](https://github.com/HeartMuLa/heartlib): the HeartMuLa song generator, run by the server as a service. | Apache-2.0 |
+| [`DiffRhythm2`](https://github.com/privadosIA/DiffRhythm2) (this repository) | C# port of [DiffRhythm2](https://github.com/ASLP-lab/DiffRhythm2): a diffusion model that writes a whole song. | Apache-2.0 |
+| [`lion-clap`](https://github.com/privadosIA/lion-clap) | C# port of [LAION-CLAP](https://github.com/LAION-AI/CLAP): audio and text embeddings, used to recognise songs. | Apache-2.0 |
+| [`musicgen-core`](https://github.com/privadosIA/musicgen-core) | The TorchSharp building blocks shared by the five ports. | Apache-2.0 |
+| [`triposr`](https://github.com/privadosIA/triposr) | C# port of [TripoSR](https://github.com/VAST-AI-Research/TripoSR): one picture in, one 3D model (`.glb`) out. | Apache-2.0 |
+| [`stable-fast-3d`](https://github.com/privadosIA/stable-fast-3d) | C# port of [Stable Fast 3D](https://github.com/Stability-AI/stable-fast-3d): one picture in, one textured 3D model (`.glb`) out. | **Stability AI Community License — not Apache-2.0**: free for research and non-commercial use and under US$1M of yearly revenue (register with Stability AI), a commercial licence above |
 
 The links are to the public copies of these repositories. The third-party tools, models and libraries they build on, with their licenses, are listed in [THIRD_PARTY.md](https://github.com/privadosIA/veritmo/blob/main/THIRD_PARTY.md).
 
 ## License
 
-Apache 2.0 (see [LICENSE](LICENSE)). This is a port of work by other people; see the origin and licences of the original and of the weights in the sections above and, for the whole set, in the mediaOrquestator `dotnet/THIRD_PARTY.md`.
+Apache 2.0 (see [LICENSE](LICENSE)). This is a port of work by other people; see the origin and licences of the original and of the weights in the sections above and, for the whole set, in the Veritmo `dotnet/THIRD_PARTY.md`.
 
 This licence covers the code of this repository. The model weights are downloaded from their publishers and are under their own licences: MuQ-MuLan is CC-BY-NC-4.0 (non-commercial); for the others, see their model cards.
 

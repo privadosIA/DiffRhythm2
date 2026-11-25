@@ -1,6 +1,6 @@
 # BigVGAN decoder
 
-C# port of DiffRhythm2's BigVGAN generator and its chunked latent decoder (`src/DiffRhythm2.Net/Decoder`). Python reference: `mediaorquestator/diffrhythm2:1` (upstream commit 7804f82, `bigvgan/model.py`).
+C# port of DiffRhythm2's BigVGAN generator and its chunked latent decoder (`src/DiffRhythm2.Net/Decoder`). Python reference: `veritmo/diffrhythm2:1` (upstream commit 7804f82, `bigvgan/model.py`).
 
 ## Usage
 

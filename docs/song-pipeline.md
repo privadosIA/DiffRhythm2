@@ -1,6 +1,6 @@
 # Song pipeline: lyrics and a style to a WAV
 
-`SongGenerator` (namespace `DiffRhythm2.Pipeline`) joins the four stages of DiffRhythm2 and reproduces what the reference service does around them. The `diffrhythm2` executable (`src/DiffRhythm2.Cli`) is a thin command line over it. Python reference: the service in `mediaorquestator/diffrhythm2:1` (`/opt/server.py`, `Engine._sing`).
+`SongGenerator` (namespace `DiffRhythm2.Pipeline`) joins the four stages of DiffRhythm2 and reproduces what the reference service does around them. The `diffrhythm2` executable (`src/DiffRhythm2.Cli`) is a thin command line over it. Python reference: the service in `veritmo/diffrhythm2:1` (`/opt/server.py`, `Engine._sing`).
 
 ```
 SongRequest --Validate--> lyrics prepared, style normalized

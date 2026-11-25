@@ -1,6 +1,6 @@
 # DiT golden run (fp32, CPU)
 
-Dumped by `tools/dump_dit_reference.py` from the reference image `mediaorquestator/diffrhythm2:1` (upstream 7804f82), with the in-memory patches listed in `tools/dr2_ref.py`. See `meta.json` for the request and the reference's own run-to-run drift.
+Dumped by `tools/dump_dit_reference.py` from the reference image `veritmo/diffrhythm2:1` (upstream 7804f82), with the in-memory patches listed in `tools/dr2_ref.py`. See `meta.json` for the request and the reference's own run-to-run drift.
 
 | file | sha256 | bytes |
 |---|---|---|

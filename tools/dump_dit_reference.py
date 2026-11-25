@@ -185,7 +185,7 @@ def main():
         json.dump(meta, f, indent=1)
     R.write_manifest(
         args.out, "DiT golden run (fp32, CPU)",
-        "Dumped by `tools/dump_dit_reference.py` from the reference image `mediaorquestator/diffrhythm2:1` (upstream 7804f82), "
+        "Dumped by `tools/dump_dit_reference.py` from the reference image `veritmo/diffrhythm2:1` (upstream 7804f82), "
         "with the in-memory patches listed in `tools/dr2_ref.py`. See `meta.json` for the request and the reference's own run-to-run drift.",
         ["inputs.safetensors", "cases.safetensors", "run.safetensors", "run_empty.safetensors", "run_cfg0.safetensors", "run_45.safetensors", "meta.json"])
     print(json.dumps({k: meta[k] for k in ("text_len", "blocks_sampled", "latent_frames", "reference_nondeterminism")}, indent=1))

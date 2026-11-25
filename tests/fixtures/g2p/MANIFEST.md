@@ -1,6 +1,6 @@
 # English g2p golden run (reference image, CPU)
 
-Dumped by `tools/dump_g2p_reference.py` from the reference image `mediaorquestator/diffrhythm2:1` (upstream 7804f82) over `tools/g2p_corpus.txt`. `transcripts.json` is a replay of the real espeak-ng calls (version in `meta.json`); the number words come from the `inflect` copy vendored in setuptools.
+Dumped by `tools/dump_g2p_reference.py` from the reference image `veritmo/diffrhythm2:1` (upstream 7804f82) over `tools/g2p_corpus.txt`. `transcripts.json` is a replay of the real espeak-ng calls (version in `meta.json`); the number words come from the `inflect` copy vendored in setuptools.
 
 | file | sha256 | bytes |
 |---|---|---|

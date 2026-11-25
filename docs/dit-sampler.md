@@ -1,6 +1,6 @@
 # DiT and block-wise sampler
 
-C# port of DiffRhythm2's diffusion transformer and its block-wise guided flow-matching sampler (`src/DiffRhythm2.Net`). Python reference: `mediaorquestator/diffrhythm2:1` (upstream commit 7804f82).
+C# port of DiffRhythm2's diffusion transformer and its block-wise guided flow-matching sampler (`src/DiffRhythm2.Net`). Python reference: `veritmo/diffrhythm2:1` (upstream commit 7804f82).
 
 ## Usage
 

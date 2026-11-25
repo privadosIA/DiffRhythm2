@@ -170,7 +170,7 @@ def main():
     dump("meta.json", meta)
     R.write_manifest(
         args.out, "MuQ-MuLan text tower golden run (fp32, CPU)",
-        "Dumped by `tools/dump_mulan_text_reference.py` from the reference image `mediaorquestator/diffrhythm2:1` through the real `MuQMuLan`. "
+        "Dumped by `tools/dump_mulan_text_reference.py` from the reference image `veritmo/diffrhythm2:1` through the real `MuQMuLan`. "
         "`normalization.json` maps every changed code point of planes 0 to 2 alone, plus multi-character strings; `tower.safetensors` holds the stage outputs.",
         ["tokens.json", "normalization.json", "tower.safetensors", "max_length.safetensors", "meta.json"])
     print(json.dumps({k: v for k, v in meta.items() if k != "prompts"}, indent=1))

@@ -1,6 +1,6 @@
 # English g2p and lyrics tokenization
 
-C# port of the front end that turns lyrics into the token ids the DiT takes as text (`src/DiffRhythm2.Net/Text`). Python reference: `mediaorquestator/diffrhythm2:1` (upstream commit 7804f82: `inference.parse_lyrics`, `g2p/g2p_generation.chn_eng_g2p`, `g2p/g2p/english.py`, `phonemizer` 3.4.0, espeak-ng 1.51). **English only**: a line with Chinese characters is rejected with an explicit error (the Mandarin stack - jieba, pypinyin, a polyphone model - is a separate, parked change).
+C# port of the front end that turns lyrics into the token ids the DiT takes as text (`src/DiffRhythm2.Net/Text`). Python reference: `veritmo/diffrhythm2:1` (upstream commit 7804f82: `inference.parse_lyrics`, `g2p/g2p_generation.chn_eng_g2p`, `g2p/g2p/english.py`, `phonemizer` 3.4.0, espeak-ng 1.51). **English only**: a line with Chinese characters is rejected with an explicit error (the Mandarin stack - jieba, pypinyin, a polyphone model - is a separate, parked change).
 
 ## Usage
 
@@ -23,8 +23,8 @@ The phonemes come from `libespeak-ng` through P/Invoke (`espeak_Initialize`, `es
 **Version matters.** The reference runs espeak-ng **1.51**; pronunciations can differ in other versions. `tools/fetch_espeak_reference.sh <dir>` copies the exact Debian build out of the reference image (the library, `libpcaudio`, `libsonic` and the data), which runs on the host with no install:
 
 ```bash
-tools/fetch_espeak_reference.sh ~/Proyectos/mediaOrquestator/models/music/diffrhythm2/espeak-1.51
-E=~/Proyectos/mediaOrquestator/models/music/diffrhythm2/espeak-1.51
+tools/fetch_espeak_reference.sh ~/Proyectos/veritmo/models/music/diffrhythm2/espeak-1.51
+E=~/Proyectos/veritmo/models/music/diffrhythm2/espeak-1.51
 DIFFRHYTHM2_ESPEAK_LIB=$E/libespeak-ng.so.1.1.51 DIFFRHYTHM2_ESPEAK_DATA=$E/espeak-ng-data LD_LIBRARY_PATH=$E dotnet test -c Release
 ```
 
